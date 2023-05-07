@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mocData:
+    container_name: Automated_Labeling_System_Moc_Data
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: "mocData"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "rootpassword"
+      MYSQL_USER: "genericuser"
+    volumes:
+      - ./_data:/docker-entrypoint-initdb.d
+    ports:
+      - "3316:3306"
